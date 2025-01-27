@@ -7,6 +7,10 @@ Flask-WTF==1.1.1
 Flask-Migrate==4.0.4
 Flask-Security-Too==5.1.2
 
+# Database
+psycopg2-binary==2.9.9
+SQLAlchemy==2.0.23
+
 # Data Processing
 pandas==2.0.3
 numpy==1.25.2
