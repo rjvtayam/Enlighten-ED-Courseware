@@ -28,7 +28,7 @@ gunicorn==21.2.0
 gevent==23.7.0
 
 # Documentation
-Sphinx==7.1.2
+Sphinx==6.2.1
 sphinx-rtd-theme==1.2.2
 
 # Linting and Formatting
