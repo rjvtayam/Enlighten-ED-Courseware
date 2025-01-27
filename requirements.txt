@@ -1,0 +1,59 @@
+# Core Framework
+Flask==2.3.3
+Werkzeug==2.3.7
+Flask-SQLAlchemy==3.0.5
+psycopg2-binary==2.9.7
+Flask-Login==0.6.2
+Flask-WTF==1.1.1
+
+# Database Migrations
+alembic==1.11.3
+Flask-Migrate==4.0.4
+
+# Form Handling
+WTForms==3.0.1
+email-validator==2.0.0
+
+# File Handling
+python-magic==0.4.27
+Pillow==10.0.0
+
+# Security
+Flask-Security-Too==5.1.2
+bcrypt==4.0.1
+PyJWT==2.8.0
+
+# Real-time Features
+Flask-SocketIO==5.3.5
+python-socketio==5.9.0
+eventlet==0.33.3
+
+# Data Processing
+pandas==2.0.3
+numpy==1.25.2
+
+# Date/Time Handling
+python-dateutil==2.8.2
+pytz==2023.3
+
+# Testing
+pytest==7.4.0
+pytest-flask==1.2.0
+coverage==7.3.0
+
+# Development Tools
+python-dotenv==1.0.0
+Flask-DebugToolbar==0.13.1
+
+# Production Server
+gunicorn==21.2.0
+gevent==23.7.0
+
+# Documentation
+Sphinx==7.1.2
+sphinx-rtd-theme==1.2.2
+
+# Linting and Formatting
+flake8==6.1.0
+black==23.7.0
+isort==5.12.0

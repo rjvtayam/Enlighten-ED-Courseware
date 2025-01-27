@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}{{ topic.title }} - Discussion{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <!-- Topic Header -->
+    <div class="bg-white rounded-lg shadow-sm p-6">
+        <div class="flex items-start">
+            <img src="{{ topic.author.avatar_url }}" class="h-12 w-12 rounded-full">
+            <div class="ml-4 flex-1">
+                <h1 class="text-2xl font-bold">{{ topic.title }}</h1>
+                <div class="flex items-center mt-2 text-sm text-gray-500">
+                    <span>Posted by {{ topic.author.username }}</span>
+                    <span class="mx-2">•</span>
+                    <span>{{ topic.created_at|timeago }}</span>
+                </div>
+                <div class="mt-4 prose max-w-none">
+                    {{ topic.content|markdown }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Replies -->
+    <div class="space-y-4">
+        {% for reply in topic.replies %}
+        <div class="bg-white rounded-lg shadow-sm p-6">
+            <div class="flex items-start">
+                <img src="{{ reply.author.avatar_url }}" class="h-10 w-10 rounded-full">
+                <div class="ml-4 flex-1">
+                    <div class="flex items-center justify-between">
+                        <div class="text-sm text-gray-500">
+                            <span class="font-medium text-gray-900">{{ reply.author.username }}</span>
+                            <span class="mx-2">•</span>
+                            <span>{{ reply.created_at|timeago }}</span>
+                        </div>
+                    </div>
+                    <div class="mt-2 prose max-w-none">
+                        {{ reply.content|markdown }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Reply Form -->
+    <div class="bg-white rounded-lg shadow-sm p-6">
+        <h3 class="text-lg font-medium mb-4">Add Reply</h3>
+        <form method="POST" action="{{ url_for('discussion.add_reply', topic_id=topic.id) }}">
+            {{ form.csrf_token }}
+            <div class="space-y-4">
+                <div>
+                    {{ form.content(class="w-full rounded-md border-gray-300", rows="4", 
+                                  placeholder="Write your reply...") }}
+                </div>
+                <div class="flex justify-end">
+                    <button type="submit" 
+                            class="px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700">
+                        Post Reply
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
