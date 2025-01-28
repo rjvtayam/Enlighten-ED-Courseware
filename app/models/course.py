@@ -1,5 +1,6 @@
 from app import db
 from datetime import datetime
+from app.models.progress import Progress
 
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
